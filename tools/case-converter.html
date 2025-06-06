@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Converter - WordMetrics</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h1>Word<span>Metrics</span></h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Tool Section -->
+    <section class="tool-page">
+        <div class="tool-header">
+            <h1>Case Converter</h1>
+            <p>Convert text case with multiple options</p>
+        </div>
+
+        <div class="tool-container">
+            <div class="text-area-wrapper">
+                <textarea id="text-input" placeholder="Type or paste your text here to convert case..."></textarea>
+                <div class="button-group">
+                    <button class="btn" id="uppercase-btn">
+                        <i class="fas fa-arrow-up"></i> UPPERCASE
+                    </button>
+                    <button class="btn" id="lowercase-btn">
+                        <i class="fas fa-arrow-down"></i> lowercase
+                    </button>
+                    <button class="btn" id="titlecase-btn">
+                        <i class="fas fa-font"></i> Title Case
+                    </button>
+                    <button class="btn" id="copy-btn">
+                        <i class="far fa-copy"></i> Copy Text
+                    </button>
+                    <button class="btn" id="reset-btn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <div class="case-stats">
+                <div class="stat-card">
+                    <i class="fas fa-text-height"></i>
+                    <h3>Original Length</h3>
+                    <p id="original-length">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Current Case</h3>
+                    <p id="current-case">Original</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WordMetrics</h3>
+                <p>Your trusted tool for word counting and text analysis.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#tools">Tools</a></li>
+                    <li><a href="../index.html#blog">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 WordMetrics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="case-converter.js"></script>
+</body>
+</html> 
