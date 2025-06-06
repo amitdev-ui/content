@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WordMetrics Readability Analyzer - Check text complexity and reading level">
+    <meta name="keywords" content="readability analyzer, reading level, text complexity, Flesch-Kincaid">
+    <title>Readability Analyzer - WordMetrics</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="tools.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="../index.html">
+                <h1>Word<span>Metrics</span></h1>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Tool Section -->
+    <section class="tool-page">
+        <div class="tool-header">
+            <h1><i class="fas fa-book-reader"></i> Readability Analyzer</h1>
+            <p>Analyze text complexity and reading level</p>
+        </div>
+
+        <div class="tool-container">
+            <div class="text-area-wrapper">
+                <textarea id="text-input" placeholder="Type or paste your text here to analyze readability..."></textarea>
+                <div class="button-group">
+                    <button class="btn" id="analyze-btn">
+                        <i class="fas fa-chart-bar"></i> Analyze Text
+                    </button>
+                    <button class="btn" id="copy-btn">
+                        <i class="far fa-copy"></i> Copy Text
+                    </button>
+                    <button class="btn" id="reset-btn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <div class="readability-stats">
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Reading Level</h3>
+                    <p id="reading-level">-</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Reading Time</h3>
+                    <p id="reading-time">0 min</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Readability Score</h3>
+                    <p id="readability-score">0</p>
+                </div>
+            </div>
+
+            <div class="readability-details" id="details-container">
+                <div class="text-metrics">
+                    <h3>Text Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">Words</span>
+                            <span id="word-count" class="metric-value">0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Sentences</span>
+                            <span id="sentence-count" class="metric-value">0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Paragraphs</span>
+                            <span id="paragraph-count" class="metric-value">0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Complex Words</span>
+                            <span id="complex-words" class="metric-value">0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Average Word Length</span>
+                            <span id="avg-word-length" class="metric-value">0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Average Sentence Length</span>
+                            <span id="avg-sentence-length" class="metric-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WordMetrics</h3>
+                <p>Your trusted tool for word counting and text analysis.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#tools">Tools</a></li>
+                    <li><a href="../index.html#blog">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 WordMetrics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="readability.js"></script>
+</body>
+</html> 
