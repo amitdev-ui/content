@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our collection of articles about AI tools, content creation, and online money-making strategies.">
+    <meta name="keywords" content="AI tools blog, content creation, online money, digital marketing, e-commerce">
+    <title>Blog - WordMetrics</title>
+    <link rel="stylesheet" href="blog-post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        nav {
+            background: #6C63FF; /* Updated to specified color */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .nav-brand {
+            font-size: 1.8em;
+            color: #ffffff; /* White text for contrast */
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .nav-brand i {
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ffffff; /* White text for contrast */
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e0f7fa; /* Light hover color */
+            transform: scale(1.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-btn, .home-btn {
+            background: none;
+            border: none;
+            color: #ffffff; /* White text for contrast */
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .search-btn:hover, .home-btn:hover {
+            color: #e0f7fa; /* Light hover color */
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #e0f7fa;
+                width: 100%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                color: #ffffff; /* White text for contrast */
+                font-size: 1.5em;
+                cursor: pointer;
+            }
+        }
+
+        .blog-header {
+            text-align: center;
+            padding: 50px 20px;
+            background: #e0f7fa;
+            position: relative;
+        }
+
+        .blog-header::after {
+            content: '';
+            background: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .pagination-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .page-btn {
+            background: transparent;
+            border: 1.5px solid #6C63FF;
+            color: #6C63FF;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            min-width: 100px;
+            justify-content: center;
+            font-size: 0.9em;
+        }
+
+        .page-btn:hover {
+            background: #6C63FF;
+            color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(108, 99, 255, 0.2);
+        }
+
+        .page-btn.active {
+            background: #6C63FF;
+            color: #ffffff;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(108, 99, 255, 0.3);
+        }
+
+        .page-btn:disabled {
+            background: #f5f5f5;
+            border-color: #ddd;
+            color: #999;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .page-dots {
+            color: #6C63FF;
+            font-weight: bold;
+            padding: 0 3px;
+            font-size: 1.1em;
+        }
+
+        .page-info {
+            text-align: center;
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        .current-range, .total-items {
+            color: #6C63FF;
+            font-weight: 600;
+        }
+
+        .prev-btn, .next-btn {
+            background: transparent;
+            color: #6C63FF;
+            border: 2px solid #6C63FF;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: #6C63FF;
+            color: #ffffff;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            min-height: 400px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .featured-card {
+            position: relative;
+            border: 2px solid #6C63FF;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: #6C63FF;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            color: #6C63FF;
+        }
+
+        .card-cta {
+            background: #6C63FF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-cta:hover {
+            transform: translateX(5px);
+        }
+
+        .blog-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            max-width: 350px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-stats {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .category {
+            color: #6C63FF;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .card-content h3 {
+            margin: 8px 0;
+            font-size: 1.1em;
+            min-height: 50px;
+        }
+
+        .card-cta {
+            background: #6C63FF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+        
+        .card-link:hover .card-cta {
+            transform: translateX(8px);
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .feature-item {
+            padding: 4px 8px;
+            font-size: 0.85em;
+        }
+
+        .card-stats {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(108, 99, 255, 0.9);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            backdrop-filter: blur(3px);
+        }
+
+        .card-stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-stats i {
+            font-size: 0.8em;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            z-index: 1;
+        }
+
+        .featured-card {
+            border: 2px solid var(--primary-color);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card-link:hover .card-cta {
+            transform: translateX(5px);
+        }
+
+        .blog-footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-section p {
+            color: #bdc3c7;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-links i {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #bdc3c7;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .pagination-container {
+                padding: 15px;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .page-numbers {
+                order: 2;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .prev-btn, .next-btn {
+                order: 1;
+                width: 45%;
+                min-width: auto;
+                padding: 6px 12px;
+            }
+
+            .page-btn {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        .header-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .header-content h1 {
+            font-size: 3.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            min-width: 200px;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item i {
+            font-size: 2em;
+            color: #6C63FF;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5em;
+            }
+
+            .blog-stats {
+                gap: 20px;
+            }
+
+            .stat-item {
+                min-width: 150px;
+                padding: 15px 20px;
+            }
+
+            .stat-number {
+                font-size: 1.5em;
+            }
+        }
+
+        .related-articles {
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-card {
+            max-width: 350px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .related-image {
+            height: 160px;
+        }
+
+        .related-content {
+            padding: 15px;
+        }
+
+        .related-title {
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid, .related-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+
+            .blog-card, .related-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Slideshow -->
+    <div class="background-slideshow">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="nav-brand">
+            <i class="fas fa-pen-fancy"></i>
+            WordMetrics
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="index.html" class="active">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="../index.html" class="home-btn">
+                <i class="fas fa-home"></i>
+                Back to Home
+            </a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="header-content" style="width: 80%; margin: 0 auto;">
+            <h1>Our Blog</h1>
+            <p class="header-subtitle">Discover insights, tips, and strategies for content creation and online success</p>
+            <div class="blog-stats">
+                <div class="stat-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Total Articles</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="stat-number">52</span>
+                    <span class="stat-label">Minutes of Reading</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">Days of Content</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid">
+        <!-- Featured Post -->
+        <article class="blog-card featured">
+            <div class="card-badge">Featured</div>
+            <a href="ai-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="AI Tools 2025">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">AI Tools</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 12 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Mar 20, 2025</span>
+                </div>
+                    <h2 class="card-title">Top Free AI Tools in 2025</h2>
+                    <p class="card-excerpt">Discover the most powerful free AI tools that are revolutionizing content creation and online work in 2025.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-pen"></i> Content Creation</span>
+                        <span class="feature-item"><i class="fas fa-chart-line"></i> Productivity</span>
+                        <span class="feature-item"><i class="fas fa-search"></i> Research</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <!-- Regular Posts -->
+        <article class="blog-card">
+            <a href="ai-content-creation-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Content Creation">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Content Creation</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 9 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Mar 23, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Content Creation Tools in 2025</h2>
+                    <p class="card-excerpt">Learn how to use AI tools to create engaging content and earn money online in 2025.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-pen"></i> Writing</span>
+                        <span class="feature-item"><i class="fas fa-video"></i> Video</span>
+                        <span class="feature-item"><i class="fas fa-image"></i> Images</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-freelancing-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Freelancing">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Freelancing</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 10 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Mar 25, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Tools for Freelancers in 2025</h2>
+                    <p class="card-excerpt">Maximize your freelance income with these powerful AI tools for project management and client communication.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-tasks"></i> Project Management</span>
+                        <span class="feature-item"><i class="fas fa-comments"></i> Communication</span>
+                        <span class="feature-item"><i class="fas fa-wallet"></i> Finance</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-marketing-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Marketing">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                    <span class="category">Marketing</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 11 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Mar 26, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Marketing Tools for 2025</h2>
+                    <p class="card-excerpt">Boost your online presence and sales with these cutting-edge AI marketing tools.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-share-alt"></i> Social Media</span>
+                        <span class="feature-item"><i class="fas fa-envelope"></i> Email Marketing</span>
+                        <span class="feature-item"><i class="fas fa-chart-line"></i> Analytics</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-ecommerce-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI E-commerce">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">E-commerce</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 10 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Mar 28, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI E-commerce Tools in 2025</h2>
+                    <p class="card-excerpt">Transform your online store with these AI-powered tools for product management and sales optimization.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-box"></i> Product Management</span>
+                        <span class="feature-item"><i class="fas fa-robot"></i> Customer Service</span>
+                        <span class="feature-item"><i class="fas fa-chart-bar"></i> Analytics</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <!-- New Blog Posts -->
+        <article class="blog-card">
+            <a href="ai-writing-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Writing Tools">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Writing</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 8 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Mar 30, 2025</span>
+                    </div>
+                    <h2 class="card-title">Best AI Writing Tools for 2025</h2>
+                    <p class="card-excerpt">Enhance your writing skills with these powerful AI tools for content creation and editing.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-pen-fancy"></i> Writing</span>
+                        <span class="feature-item"><i class="fas fa-spell-check"></i> Grammar</span>
+                        <span class="feature-item"><i class="fas fa-language"></i> Translation</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-video-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Video Tools">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Video</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 11 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Apr 1, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Video Creation Tools in 2025</h2>
+                    <p class="card-excerpt">Create professional videos with these cutting-edge AI tools for video production and editing.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-video"></i> Video Creation</span>
+                        <span class="feature-item"><i class="fas fa-film"></i> Editing</span>
+                        <span class="feature-item"><i class="fas fa-microphone"></i> Voiceover</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-design-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Design Tools">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Design</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 9 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Apr 3, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Design Tools for 2025</h2>
+                    <p class="card-excerpt">Create stunning visuals with these AI-powered design tools for graphics and illustrations.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-paint-brush"></i> Graphics</span>
+                        <span class="feature-item"><i class="fas fa-palette"></i> Color Schemes</span>
+                        <span class="feature-item"><i class="fas fa-vector-square"></i> Layouts</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-analytics-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Analytics Tools">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Analytics</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 10 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Apr 5, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Analytics Tools for 2025</h2>
+                    <p class="card-excerpt">Make data-driven decisions with these powerful AI tools for business analytics and insights.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-chart-line"></i> Data Analysis</span>
+                        <span class="feature-item"><i class="fas fa-chart-pie"></i> Visualization</span>
+                        <span class="feature-item"><i class="fas fa-brain"></i> Predictions</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article class="blog-card">
+            <a href="ai-productivity-tools-2025.html" class="card-link">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         alt="AI Productivity Tools">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="category">Productivity</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 8 min read</span>
+                        <span class="date"><i class="fas fa-calendar"></i> Apr 7, 2025</span>
+                    </div>
+                    <h2 class="card-title">AI Productivity Tools for 2025</h2>
+                    <p class="card-excerpt">Boost your efficiency with these AI tools designed to enhance productivity and workflow.</p>
+                    <div class="card-features">
+                        <span class="feature-item"><i class="fas fa-tasks"></i> Task Management</span>
+                        <span class="feature-item"><i class="fas fa-calendar-check"></i> Scheduling</span>
+                        <span class="feature-item"><i class="fas fa-lightbulb"></i> Automation</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" style="width: 80%; margin: 40px auto;">
+        <div class="pagination">
+            <button class="page-btn prev-btn" aria-label="Previous page">
+                <i class="fas fa-chevron-left"></i>
+                <span>Previous</span>
+            </button>
+            <div class="page-numbers">
+                <button class="page-btn page-num active" data-page="1">1</button>
+                <button class="page-btn page-num" data-page="2">2</button>
+                <button class="page-btn page-num" data-page="3">3</button>
+                <span class="page-dots">...</span>
+                <button class="page-btn page-num" data-page="5">5</button>
+            </div>
+            <button class="page-btn next-btn" aria-label="Next page">
+                <span>Next</span>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="page-info">
+            Showing <span class="current-range">1-6</span> of <span class="total-items">30</span> articles
+        </div>
+    </div>
+
+    <!-- Related Posts Section -->
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <!-- Related Article 1 -->
+            <article class="related-card">
+                <a href="ai-tools-2025.html" class="card-link">
+                    <div class="related-image">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                             alt="AI Tools 2025">
+                    </div>
+                    <div class="related-content">
+                        <span class="related-category">AI Tools</span>
+                        <h3 class="related-title">Top Free AI Tools in 2025</h3>
+                        <div class="related-meta">
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                            <span><i class="fas fa-calendar"></i> Mar 20</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Related Article 2 -->
+            <article class="related-card">
+                <a href="ai-marketing-tools-2025.html" class="card-link">
+                    <div class="related-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                             alt="AI Marketing">
+                    </div>
+                    <div class="related-content">
+                        <span class="related-category">Marketing</span>
+                        <h3 class="related-title">AI Marketing Tools for 2025</h3>
+                        <div class="related-meta">
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
+                            <span><i class="fas fa-calendar"></i> Mar 26</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Related Article 3 -->
+            <article class="related-card">
+                <a href="ai-freelancing-tools-2025.html" class="card-link">
+                    <div class="related-image">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                             alt="AI Freelancing">
+                    </div>
+                    <div class="related-content">
+                        <span class="related-category">Freelancing</span>
+                        <h3 class="related-title">AI Tools for Freelancers in 2025</h3>
+                        <div class="related-meta">
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                            <span><i class="fas fa-calendar"></i> Mar 25</span>
+                </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <div class="footer-content" style="width: 80%; margin: 0 auto;">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About WordMetrics</h3>
+                    <p>Your trusted partner in content creation and optimization. We help writers and businesses create better content that engages and converts.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../index.html#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                        <li><a href="../index.html#features"><i class="fas fa-star"></i> Features</a></li>
+                        <li><a href="index.html"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-robot"></i> AI Tools</a></li>
+                        <li><a href="#"><i class="fas fa-pen"></i> Content Creation</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Marketing</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i> E-commerce</a></li>
+                        <li><a href="#"><i class="fas fa-user-tie"></i> Freelancing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content" style="width: 80%; margin: 0 auto;">
+                <p>&copy; 2024 WordMetrics. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Pagination functionality
+        const pageButtons = document.querySelectorAll('.page-num');
+        const prevButton = document.querySelector('.prev-btn');
+        const nextButton = document.querySelector('.next-btn');
+        const blogGrid = document.querySelector('.blog-grid');
+        let currentPage = 1;
+        const postsPerPage = 6;
+
+        // Function to show/hide blog posts based on current page
+        function showPage(pageNum) {
+            const startIndex = (pageNum - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const blogCards = blogGrid.querySelectorAll('.blog-card');
+
+            blogCards.forEach((card, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update pagination buttons
+            pageButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.dataset.page) === pageNum) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update prev/next button states
+            prevButton.disabled = pageNum === 1;
+            nextButton.disabled = pageNum === Math.ceil(blogCards.length / postsPerPage);
+
+            // Update pagination info
+            updatePaginationInfo(pageNum);
+
+            // Scroll to top of blog grid
+            blogGrid.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Event listeners for pagination buttons
+        pageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const pageNum = parseInt(button.dataset.page);
+                showPage(pageNum);
+            });
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            const totalPages = Math.ceil(blogGrid.querySelectorAll('.blog-card').length / postsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+
+        // Initialize pagination with info
+        showPage(1);
+
+        // Background slideshow functionality
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Initialize slideshow and pagination
+        setInterval(nextSlide, 5000);
+        const params = new URLSearchParams(window.location.search);
+        const initialPage = parseInt(params.get('page')) || 1;
+        showPage(initialPage);
+
+        // Update pagination info
+        function updatePaginationInfo(pageNum) {
+            const postsPerPage = 6;
+            const start = (pageNum - 1) * postsPerPage + 1;
+            const end = Math.min(start + postsPerPage - 1, 30);
+            const currentRange = document.querySelector('.current-range');
+            currentRange.textContent = `${start}-${end}`;
+        }
+    </script>
+</body>
+</html> 

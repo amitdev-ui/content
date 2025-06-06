@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WordMetrics Professional Typing Test - Improve your typing speed and accuracy">
+    <meta name="keywords" content="typing test, wpm calculator, typing speed, typing accuracy, typing practice">
+    <title>Professional Typing Test - WordMetrics</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="tools.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="../index.html">
+                <h1>Word<span>Metrics</span></h1>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Tool Section -->
+    <section class="tool-page">
+        <div class="tool-header">
+            <h1><i class="fas fa-keyboard"></i> Professional Typing Test</h1>
+            <p>Test and improve your typing speed and accuracy</p>
+        </div>
+
+        <div class="tool-container typing-test">
+            <div class="typing-settings">
+                <div class="setting-group">
+                    <label>Test Duration</label>
+                    <div class="typing-modes">
+                        <button class="mode-btn active" data-time="1">1 Min</button>
+                        <button class="mode-btn" data-time="2">2 Min</button>
+                        <button class="mode-btn" data-time="3">3 Min</button>
+                        <button class="mode-btn" data-time="5">5 Min</button>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Difficulty</label>
+                    <div class="difficulty-modes">
+                        <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+                <div class="typing-timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">1:00</span>
+                </div>
+            </div>
+
+            <div class="typing-content">
+                <div class="typing-text" id="typing-text">
+                    <div class="text-display"></div>
+                    <textarea id="typing-input" placeholder="Click here to start typing..." spellcheck="false"></textarea>
+                </div>
+
+                <div class="typing-metrics">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="metric-info">
+                            <h3>WPM</h3>
+                            <p id="wpm">0</p>
+                            <small>Words per minute</small>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="metric-info">
+                            <h3>Accuracy</h3>
+                            <p id="accuracy">0%</p>
+                            <small>Correct keystrokes</small>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <div class="metric-info">
+                            <h3>Keystrokes</h3>
+                            <p id="keystrokes">0</p>
+                            <small>Total keys pressed</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typing-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p class="progress-text">0% completed</p>
+                </div>
+
+                <div class="typing-results" style="display: none;">
+                    <h2>Test Results</h2>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-label">Net WPM</span>
+                            <span id="net-wpm" class="result-value">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Gross WPM</span>
+                            <span id="gross-wpm" class="result-value">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Accuracy</span>
+                            <span id="final-accuracy" class="result-value">0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Characters</span>
+                            <span id="characters" class="result-value">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Errors</span>
+                            <span id="errors" class="result-value">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Time</span>
+                            <span id="time-taken" class="result-value">0s</span>
+                        </div>
+                    </div>
+
+                    <div class="performance-chart">
+                        <canvas id="wpmChart"></canvas>
+                    </div>
+
+                    <div class="typing-feedback">
+                        <h3>Performance Analysis</h3>
+                        <div id="feedback-text"></div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="restart-btn" class="btn">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                        <button id="share-btn" class="btn">
+                            <i class="fas fa-share-alt"></i> Share Result
+                        </button>
+                        <button id="save-btn" class="btn">
+                            <i class="fas fa-save"></i> Save Result
+                        </button>
+                    </div>
+                </div>
+
+                <div class="typing-history" style="display: none;">
+                    <h3>Your Progress</h3>
+                    <div class="history-stats">
+                        <div class="history-item">
+                            <span>Best WPM</span>
+                            <strong id="best-wpm">0</strong>
+                        </div>
+                        <div class="history-item">
+                            <span>Average WPM</span>
+                            <strong id="avg-wpm">0</strong>
+                        </div>
+                        <div class="history-item">
+                            <span>Tests Taken</span>
+                            <strong id="tests-count">0</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="typing-tips">
+            <h3>Pro Typing Tips</h3>
+            <div class="tips-carousel">
+                <div class="tip-item active">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Keep your fingers positioned on the home row keys (ASDF JKL;)</p>
+                </div>
+                <!-- More tips will be added dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WordMetrics</h3>
+                <p>Your trusted tool for word counting and text analysis.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#tools">Tools</a></li>
+                    <li><a href="../index.html#blog">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 WordMetrics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="typing-test.js"></script>
+</body>
+</html> 

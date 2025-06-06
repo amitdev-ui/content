@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - WordMetrics | AI-Powered Content Creation</title>
+    <meta name="description" content="Explore our blog for insights on AI content creation, writing tips, and digital marketing strategies.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-header p {
+            font-size: 1.2em;
+            color: #6c757d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #6C63FF;
+            border-radius: 25px;
+            background: transparent;
+            color: #6C63FF;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #6C63FF;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #6C63FF;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #adb5bd;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #6C63FF;
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 12px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .page-btn {
+            padding: 10px 20px;
+            border: 2px solid #6C63FF;
+            border-radius: 5px;
+            background: transparent;
+            color: #6C63FF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: #6C63FF;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-header {
+                padding: 30px 20px;
+            }
+
+            .blog-header h1 {
+                font-size: 2em;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">WordMetrics</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#tools">Tools</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="blogs.html" class="active">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Blog Container -->
+    <div class="blog-container">
+        <div class="blog-header">
+            <h1>Our Blog</h1>
+            <p>Discover insights, tips, and strategies for content creation, AI tools, and digital marketing.</p>
+        </div>
+
+        <div class="blog-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">AI Tools</button>
+            <button class="filter-btn">Content Creation</button>
+            <button class="filter-btn">Marketing</button>
+            <button class="filter-btn">Writing Tips</button>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Card 1 -->
+            <article class="blog-card">
+                <img src="images/blog1.jpg" alt="AI Content Creation" class="card-image">
+                <div class="card-content">
+                    <span class="card-category">AI Tools</span>
+                    <h2 class="card-title">The Future of AI Content Creation in 2025</h2>
+                    <p class="card-excerpt">Explore how artificial intelligence is revolutionizing content creation and what it means for writers and marketers.</p>
+                    <div class="card-meta">
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                        <span><i class="far fa-calendar"></i> Mar 25, 2025</span>
+                    </div>
+                    <a href="blogs/ai-content-creation-2025.html" class="read-more">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Card 2 -->
+            <article class="blog-card">
+                <img src="images/blog2.jpg" alt="Writing Tips" class="card-image">
+                <div class="card-content">
+                    <span class="card-category">Writing Tips</span>
+                    <h2 class="card-title">10 Essential Tips for Better Content Writing</h2>
+                    <p class="card-excerpt">Learn proven techniques to improve your writing skills and create more engaging content that resonates with your audience.</p>
+                    <div class="card-meta">
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                        <span><i class="far fa-calendar"></i> Mar 23, 2025</span>
+                    </div>
+                    <a href="blogs/effective-writing-tips.html" class="read-more">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Card 3 -->
+            <article class="blog-card">
+                <img src="images/blog3.jpg" alt="Marketing Strategies" class="card-image">
+                <div class="card-content">
+                    <span class="card-category">Marketing</span>
+                    <h2 class="card-title">Content Marketing Strategies for 2025</h2>
+                    <p class="card-excerpt">Discover the latest trends and strategies in content marketing that will help you grow your audience and increase engagement.</p>
+                    <div class="card-meta">
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                        <span><i class="far fa-calendar"></i> Mar 21, 2025</span>
+                    </div>
+                    <a href="blogs/content-marketing-strategies.html" class="read-more">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Card 4 -->
+            <article class="blog-card">
+                <img src="images/blog4.jpg" alt="SEO Guide" class="card-image">
+                <div class="card-content">
+                    <span class="card-category">SEO</span>
+                    <h2 class="card-title">Complete SEO Guide for Content Writers</h2>
+                    <p class="card-excerpt">Master the art of SEO writing with our comprehensive guide covering keywords, meta descriptions, and content optimization.</p>
+                    <div class="card-meta">
+                        <span><i class="far fa-clock"></i> 9 min read</span>
+                        <span><i class="far fa-calendar"></i> Mar 19, 2025</span>
+                    </div>
+                    <a href="blogs/seo-guide.html" class="read-more">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="pagination">
+            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <div class="footer-content" style="width: 80%; margin: 0 auto;">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About WordMetrics</h3>
+                    <p>Your trusted partner in content creation and optimization. We help writers and businesses create better content that engages and converts.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="index.html#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                        <li><a href="index.html#features"><i class="fas fa-star"></i> Features</a></li>
+                        <li><a href="blogs.html"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-robot"></i> AI Tools</a></li>
+                        <li><a href="#"><i class="fas fa-pen"></i> Content Creation</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Marketing</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i> E-commerce</a></li>
+                        <li><a href="#"><i class="fas fa-user-tie"></i> Freelancing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content" style="width: 80%; margin: 0 auto;">
+                <p>&copy; 2024 WordMetrics. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.textContent.toLowerCase();
+                
+                blogCards.forEach(card => {
+                    const cardCategory = card.querySelector('.card-category').textContent.toLowerCase();
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
